@@ -14,13 +14,19 @@
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
+      let welcome = document.querySelector('#welcome');
+      let main = document.querySelector('#main');
+      welcome.style.display = "none";
+      main.style.display = "none";
+      
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      ///testAPI();
+        welcome.style.display = "block";
     } else {
       // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      ///document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
+      main.style.display = "block";
     }
   }
 
@@ -86,11 +92,21 @@
   the FB.login() function when clicked.
 -->
 
+<!-- orginal FB login btn
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
 </div>
-
+-->
+  
+  <h3>Facebook Login</h3>
+  <div id="welcome" style="display:none">
+    <button>Facebook Login</button>
+  </div>
+  <div id="main" style="display:none">
+    Hello Friend!!!!
+  </div>
+  
 </body>
 </html>
