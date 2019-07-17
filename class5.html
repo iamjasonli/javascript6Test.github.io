@@ -135,6 +135,11 @@
         console.log(response);
       });      
   }
+  function share(){
+      FB.ui({
+      method: 'share',
+      href: 'https://developers.facebook.com/docs/',
+    }, function(response){});
 </script>
 
 <!--
@@ -152,6 +157,7 @@
 -->
   
   <h3>Facebook Login</h3>
+  <button onclick="share()">Share</button>
   <div id="welcome" style="display:none">
     <button onclick="login()">Facebook Login</button>
   </div>
