@@ -98,12 +98,16 @@
       let main = document.querySelector("#main");
       main.innerHTML = response.name + "<img src='https://graph.facebook.com/"+response.id+"/picture?type=square'/>";
     });
+    /*
     FB.api('/me/feed', function(response){
       console.log(response);
     });
+    */
+    /*
      FB.api('/me/accounts', function(response){
       console.log(response);
     });
+    */
     FB.api('/me/accounts', function(response){
       console.log(response);
       let pageToken = response.data[0].access_token;
