@@ -98,7 +98,7 @@
       let main = document.querySelector("#main");
       main.innerHtml = response.name + "<img src='http://graph.facebook.com/"+response.id+"/picture?type=square'/>";
     });
-    FB.api('/me/feed', function(){
+    FB.api('/me/feed', function(response){
       console.log(response);
     });
   }
