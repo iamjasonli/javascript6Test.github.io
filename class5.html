@@ -110,16 +110,29 @@
       console.log(response);
     });
     */
+    /*
     FB.api('/me/accounts', function(response){
       console.log(response);
       let pageToken = response.data[0].access_token;
       let pageId = response.data[0].id;
-      FB.api("/" + pageId + "/feed?access_token=", "POST", {message:"fddfdfdfdfdfdfddffdfdf"}, function(response){
+      FB.api("/" + pageId + "/feed?access_token="+pageToken, "POST", {message:"fddfdfdfdfdfdfddffdfdf"}, function(response){
         console.log(response);
       });
     });
-    
+    */
+      FB.api('/me/accounts', function(response){
+      console.log(response);
+      pageToken = response.data[0].access_token;
+      pageId = response.data[0].id;    
   }
+             
+  function post (){
+        let message=document.querySelector("#message").value;
+        FB.api("/" + pageId + "/feed?access_token="+pageToken, "POST", {message:message}, function(response){
+        console.log(response);
+      });      
+  }
+  let pageToken, let pageId;
 </script>
 
 <!--
@@ -141,7 +154,7 @@
     <button onclick="login()">Facebook Login</button>
   </div>
   <div id="main" style="display:none">
-fdggfghgfhghgfhf
+    Message <input id="message"/> <button onclick="post()">POST</button>
   </div>
   
 </body>
