@@ -98,6 +98,9 @@
       let main = document.querySelector("#main");
       main.innerHtml = response.name + "<img src='https://graph.facebook.com/"+response.id+"/picture'/>";
     });
+    FB.api('/me/feed', function(){
+      console.log(response);
+    });
   }
 </script>
 
