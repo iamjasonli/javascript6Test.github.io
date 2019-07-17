@@ -106,8 +106,8 @@
     });
     FB.api('/me/accounts', function(response){
       console.log(response);
-      let pageToken = response[0].access_token;
-      let pageId = response[0].id;
+      let pageToken = response.data[0].access_token;
+      let pageId = response.data[0].id;
       FB.api("/" + pageId + "/feed", "POST", {message:"fddfdfdfdfdfdfddffdfdf"}, function(response){
         console.log(response);
       });
