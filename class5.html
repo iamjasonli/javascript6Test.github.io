@@ -123,7 +123,8 @@
       FB.api('/me/accounts', function(response){
       console.log(response);
       pageToken = response.data[0].access_token;
-      pageId = response.data[0].id;    
+      pageId = response.data[0].id;
+      });
   }
              
   function post (){
