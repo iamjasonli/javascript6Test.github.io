@@ -42,7 +42,7 @@
   function login(){//custom
     FB.login(function(response){
       statusChangeCallback(response);
-    },{scope:"email,user_gender,user_posts,manage_pages"});
+    },{scope:"email,user_gender,user_posts,manage_pages,publish_pages"});
   }
   
   window.fbAsyncInit = function() {
@@ -98,14 +98,21 @@
       let main = document.querySelector("#main");
       main.innerHTML = response.name + "<img src='https://graph.facebook.com/"+response.id+"/picture?type=square'/>";
     });
-    /*
     FB.api('/me/feed', function(response){
       console.log(response);
     });
-    */
      FB.api('/me/accounts', function(response){
       console.log(response);
     });
+    FB.api('/me/accounts', function(response){
+      console.log(response);
+      let pageToken = response[0].access_token;
+      let pageId = response[0].id;
+      FB.api("/" + pageId + "/feed", "POST", {message:"fddfdfdfdfdfdfddffdfdf"}, function(response){
+        console.log(response);
+      });
+    });
+    
   }
 </script>
 
