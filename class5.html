@@ -6,6 +6,7 @@
 </head>
 <body>
 <script>
+    let pageToken, let pageId;
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -133,7 +134,6 @@
         console.log(response);
       });      
   }
-  let pageToken, let pageId;
 </script>
 
 <!--
