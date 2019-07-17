@@ -92,9 +92,11 @@
   }
   
   function start() {
-    FB.api('/me', function(response) {
+    FB.api('/me?fields=id,name,email,gender', function(response) {
       //console.log('Successful login for: ' + response.name);
       console.log(response);
+      let main = document.querySelector('#main');
+      main.innerHtml = response.name + "<img src='https://graph.facebook.com/"+response.id+"/picture"'/>;
     });
   }
 </script>
