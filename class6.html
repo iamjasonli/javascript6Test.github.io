@@ -1,0 +1,59 @@
+
+<html>
+        <head>
+            <meta charset="utf-8">
+        </head>
+        <title>
+            ES6 Test
+        </title>
+<body>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-auth.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBxDGqu35n86pGf6SKdxzZ8cVFOj45JweA",
+    authDomain: "es6training.firebaseapp.com",
+    databaseURL: "https://es6training.firebaseio.com",
+    projectId: "es6training",
+    storageBucket: "",
+    messagingSenderId: "980765044146",
+    appId: "1:980765044146:web:5faabafcde146819"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var provider = new firebase.auth.FacebookAuthProvider();
+  provider.addScope('email, user_birthday');
+
+  function login(){
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    console.log("user=" + user);
+    }).catch(function(error) {
+        console.log("error=" + error);
+    });
+  }
+
+
+</script>
+
+</body>
+    <h3>Facebook Login</h3>
+    <button onclick="login()">Login</button>
+</html>
+
+<!-- firebase -->
+<!-- 2402331543378246 =>AppID
+
+2d5a4992e91fdc9edc29582b52c1df7a  ==> Secret Key-->
